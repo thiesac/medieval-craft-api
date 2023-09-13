@@ -13,6 +13,12 @@ async function register(req: Request, res: Response) {
   res.status(201).json(serviceResponse.data);
 }
 
+async function getAll(_req: Request, res: Response) {
+  const products = await productService.getAll();
+  res.status(200).json(products);
+}
+
 export default {
   register,
+  getAll,
 };

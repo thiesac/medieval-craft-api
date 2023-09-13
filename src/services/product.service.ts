@@ -30,6 +30,12 @@ async function register(product: ProductInputtableTypes): Promise<ServiceRespons
   return responseService;
 }
 
+async function getAll(): Promise<Product[]> {
+  const products = await ProductModel.findAll();
+  return products.map((product) => product.toJSON());
+}
+
 export default {
   register,
+  getAll,
 };
