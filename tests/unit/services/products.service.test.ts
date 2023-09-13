@@ -27,4 +27,16 @@ describe('ProductsService', function () {
     expect(response.status).to.equal('SUCCESSFUL');
     expect(response.data).to.deep.equal(mockProduct);
   });
+
+  it('should return a 200 status code and products when getAll is successful', async function () {
+    const productModelInstances = productMock.getAllProducts.map((mockProduct) => ProductModel.build(mockProduct));
+
+    const findAllStub = sinon.stub(ProductModel, 'findAll').resolves(productModelInstances);
+
+    const result = await productService.getAll();
+
+    expect(findAllStub).to.have.been.calledOnce;
+    expect(result).to.be.an('array');
+  });
+
 });
