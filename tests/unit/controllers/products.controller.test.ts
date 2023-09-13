@@ -27,16 +27,20 @@ describe('ProductsController', function () {
       orderId: 4,
     };
 
-   
     const productServiceStub = sinon.stub(productService, 'register').resolves(productMock.newProductSuccessful);
 
-    
     await productController.register(req, res);
 
-   
     expect(res.status).to.have.been.calledWith(201);
-
-
     expect(res.json).to.have.been.calledWith(productMock.newProductSuccessful.data);
   });
+
+  it('should return a 200 status code and products when getAll is successful', async function () {
+    const getAllStub = sinon.stub(productService, 'getAll').resolves(productMock.getAllProducts);
+
+    await productController.getAll(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(productMock.getAllProducts);
+  })
 });

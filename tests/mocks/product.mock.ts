@@ -8,6 +8,12 @@ const newProductSuccessful = {
   },
 };
 
+const getAllProducts = [
+  { id: 1, name: 'Product 1', price: 'Price 1', orderId: 1 },
+  { id: 2, name: 'Product 2', price: 'Price 2', orderId: 2 },
+];
+
   export default {
   newProductSuccessful,
+  getAllProducts,
 }
