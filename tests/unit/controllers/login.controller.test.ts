@@ -37,6 +37,18 @@ describe('LoginController', function () {
   })
 
   it('should return a login token when receiving valid username and passowrd', async function () {
-    
+    req.body = loginMock.validLoginBody;
+
+    const token = { token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIYWdhciIsImlhdCI6MTY5NDcwMDU5OX0.AS8gdF9YfqsTdzerduOConlsHkj4Dnz75lfciF_OzSM" };
+    const serviceResponse: ServiceResponse<Token> = {
+      status: 'SUCCESSFUL',
+      data: token,
+    }
+    sinon.stub(loginService, 'verifyLogin').resolves(serviceResponse);
+
+    await loginController.login(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(token);
   })
 });
