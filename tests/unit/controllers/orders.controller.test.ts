@@ -24,16 +24,12 @@ describe('OrdersController', function () {
       { id: 2, userId: 102, productIds: [1021, 1022] },
     ]);
 
-    // Call the getAll function from orderController
     await orderController.getAll(req, res);
 
-    // Verify that orderService.getAll was called once
     expect(orderServiceStub).to.have.been.calledOnce;
 
-    // Verify that the response status was set to 200
     expect(res.status).to.have.been.calledWith(200);
 
-    // Verify that the response json method was called with the expected data
     expect(res.json).to.have.been.calledWith([
       { id: 1, userId: 101, productIds: [1011, 1012] },
       { id: 2, userId: 102, productIds: [1021, 1022] },
