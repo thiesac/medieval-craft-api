@@ -5,6 +5,21 @@ const noUsernameLoginBody = {
   password: validPassword
 };
 
+const validLoginBody = {
+  username: 'Hagar',
+  password: validPassword
+}
+
+const existingUser = {
+  id: 1,
+  username: 'Hagar',
+  vocation: 'Guerreiro',
+  level: 10,
+  password: validPassword,
+};
+
 export default {
   noUsernameLoginBody,
+  validLoginBody,
+  existingUser,
 }

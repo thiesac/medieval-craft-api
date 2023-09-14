@@ -22,7 +22,6 @@ async function verifyLogin(login: Login): Promise<ServiceResponse<Token>> {
   }
 
   const { id, username } = foundUser.dataValues;
-
   const token = jwtUtil.sign({ id, username });
 
   return { status: 'SUCCESSFUL', data: { token } };
