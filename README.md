@@ -111,5 +111,5 @@ Contributions to this project are welcome! If you have bug fixes, feature additi
 
 ## Acknowledgments
 
-I would like to acknowledge and express our gratitude to [Trybe](https://www.betrybe.com/) for their support and guidance throughout the development of this educational resource.
+I would like to acknowledge and express my gratitude to [Trybe](https://www.betrybe.com/) for their support and guidance throughout the development of this educational resource.
 
